@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Machinae/workspace-java/BlixTor/libraries/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Machinae/workspace-java/BlixTor/libraries/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Machinae/workspace-java/BlixTor/libraries/slf4j-api-2.0.99.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Machinae/workspace-java/BlixTor/libraries/slf4j-simple-1.6.99.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Machinae/workspace-java/BlixTor/libraries/ttorrent-core-1.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFx"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
