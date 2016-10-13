@@ -6,5 +6,4 @@ public abstract class BlixTorClient extends Application {
 		Application.launch(BlixTorGUI.class, args);
 	}
 	
-	
 }
