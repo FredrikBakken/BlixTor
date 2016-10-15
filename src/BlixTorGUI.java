@@ -22,7 +22,7 @@ public class BlixTorGUI extends Application {
 	private static Button browseTorrent;
 	private static TextField selectedDownloadText;
 	private static Button browseDownload;
-	
+
 	private static Button startDownload;
 
 	@Override
@@ -33,14 +33,15 @@ public class BlixTorGUI extends Application {
 		selectTorrent(window);
 
 		selectDownloadLocation(window);
-		
+
 		startTorrentDownload(window);
 
 		BorderPane border = new BorderPane();
 
 		VBox layout = new VBox(10);
 		layout.setPadding(new Insets(20, 20, 20, 20));
-		layout.getChildren().addAll(browseTorrentText, browseTorrent, selectedDownloadText, browseDownload, startDownload);
+		layout.getChildren().addAll(browseTorrentText, browseTorrent, selectedDownloadText, browseDownload,
+				startDownload);
 
 		border.setTop(layout);
 
@@ -79,28 +80,36 @@ public class BlixTorGUI extends Application {
 			public void handle(ActionEvent event) {
 				DirectoryChooser directoryChooser = new DirectoryChooser();
 				File file = directoryChooser.showDialog(null);
-				if(file!=null) {
+				if (file != null) {
 					blixTorDownload.downloadLocation = file.getAbsolutePath();
-					
+
 					selectedDownloadText.setText(blixTorDownload.downloadLocation);
 				}
 			}
 		});
 	}
-	
+
 	public void startTorrentDownload(Stage primaryStage) throws Exception {
 		startDownload = new Button("Start Download");
-		
+
 		startDownload.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				if(!blixTorDownload.browseTorrentFile.equals("") && !blixTorDownload.downloadLocation.equals("")) {
-					try {
-						blixTorDownload.DownloadTorrent();
-					} catch (NoSuchAlgorithmException | IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				if (!blixTorDownload.browseTorrentFile.equals("") && !blixTorDownload.downloadLocation.equals("")) {
+
+					new Thread(new Runnable() {
+						public void run() {
+							try {
+								blixTorDownload.DownloadTorrent();
+							} catch (NoSuchAlgorithmException | IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}).start();
+
+				} else {
+					System.out.println("You're missing some steps.");
 				}
 			}
 		});
